@@ -20,7 +20,7 @@ const FIRMWARE_HTML_URL = 'http://fwu.ubisys.de/smarthome/OTA/release/index';
 
 function groupByImageType(arr: Image[]): GroupedImages {
     return arr.reduce<GroupedImages>((acc, cur) => {
-        acc[cur.imageType] = [...(acc[cur.imageType] || []), cur];
+        acc[cur.imageType + (cur.hardwareVersionMax ? cur.hardwareVersionMax : '')] = [...(acc[cur.imageType + (cur.hardwareVersionMax ? cur.hardwareVersionMax : '')] || []), cur];
         return acc;
     }, {});
 }
