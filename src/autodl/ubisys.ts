@@ -77,7 +77,6 @@ export async function download(): Promise<void> {
         for (const imageType in imagesByType) {
             console.log('Processing imageType', imageType);
             const image = getLatestImage(imagesByType[imageType], sortByFileVersion);
-            console.log('Latest image', image);
             if (!image) {
                 console.error(`${LOG_PREFIX} No image found for ${imageType}.`);
                 continue;
